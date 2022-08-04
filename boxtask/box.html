@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxadd > :nth-child(even){
+            background-color: green;
+        }
+        .boxadd > :nth-child(odd){
+            background-color: yellow;
+        }
+        .container{
+            display: flex;
+            /* flex-direction: row; */
+            flex-wrap: wrap;
+        }
+        .boxx, .boxadd{
+            display: flex;
+            /* flex-direction: row; */
+            flex-wrap: wrap;
+        }
+        .box{ 
+            /* background-color: red; */
+            border: 1px solid black;
+            text-align: center;
+            padding: 25px;
+            margin-bottom: 10px;
+            margin-right: 15px;
+        }
+        .plus{
+            padding-top: 25px;
+            padding-left: 15px;
+            /* border: 1px solid black; */
+            text-align: center;
+            height: fit-content;
+            width: fit-content;
+
+        }
+        .del{
+            margin-top: 10px;
+            padding: 3px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="boxx" id="boxx">
+           <div class="boxadd">
+            <div class="box">
+                <span> Box 1</span>
+
+                <div class="del">Delete</div>
+            </div>
+           </div>
+            <div class="plus">+</div>
+        </div>
+    </div>    
+    <script>
+        const addbtn = document.querySelector('.plus');
+        var counter = 1;
+        var adding = document.querySelector('.boxadd');
+        const del = document.querySelector('.del'); 
+        
+// Adding 
+        const adds = document.querySelectorAll('.boxx');
+        adds.forEach(
+            adds =>{
+                addbtn.addEventListener('click', e=>{
+                    counter += 1;
+            adding.innerHTML += `
+            <div class="box" id="${counter}">
+                    <span> Box ${counter}</span>
+                    <div class="del">Delete</div>
+            </div>`;             
+      })
+            });
+
+            adding.addEventListener('click', e=>{
+                // if(e.target.classList.contains('.boxx'))
+                // {
+                    counter -= 1;
+                    adding.removeChild(adding.lastChild);
+                // }
+            });
+// Deleting
+        // adding.addEventListener('click', e=>{
+        //     counter -= 1;
+        //         if(e.target.classList.contains('del'))
+        //         {
+        //             e.target.parentElement.remove();
+        //         }
+        // });
+    </script>
+</body>
+</html>
