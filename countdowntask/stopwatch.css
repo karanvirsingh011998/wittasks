@@ -1,0 +1,27 @@
+body{
+    background-color: #272343;
+}
+.cal,.buttons{
+    color: white;
+    align-items: center;
+    display: flex;
+    column-gap: 5px;
+}
+h3, .add_time{
+    color: #bae8e8;
+}
+
+button{
+    color: black;
+    /* background-color: blue; */
+    border-radius: 8px;
+}
+.strt{
+    background-color: green;
+}
+.pausee{
+    background-color: yellow;
+}
+.rst{
+    background-color: red;
+}
